@@ -5,7 +5,7 @@ Unexpected behavior representation of Swift dictionary on Wasm.
 ## Build swift library
 
 ```sh
-swiftc -target wasm32-unknown-wasi -o Lib.wasm -Xlinker --export=get_value Lib.swift
+swiftc -target wasm32-unknown-wasi -o Lib.wasm -Xlinker --export=get_value -Xclang-linker -mexec-model=reactor -Xlinker --export=main Lib.swift
 ```
 
 ## Use from node

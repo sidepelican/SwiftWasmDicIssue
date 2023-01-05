@@ -12,7 +12,8 @@ const wasm = await WebAssembly.compile(
 const instance = await WebAssembly.instantiate(wasm, {
   wasi_snapshot_preview1: wasi.wasiImport
 });
-wasi.start(instance);
+wasi.initialize(instance);
+instance.exports.main();
 
 console.log(instance.exports.get_value());
 console.log(instance.exports.get_value());
